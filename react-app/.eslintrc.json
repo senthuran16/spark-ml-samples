@@ -1,0 +1,86 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "jest/globals": true,
+        "jest": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:jest/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:prettier/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "react-hooks",
+        "@typescript-eslint",
+        "jest",
+        "prettier",
+        "import",
+        "simple-import-sort",
+        "unused-imports"
+    ],
+    "rules": {
+        "max-len": [
+            "error",
+            {
+                "code": 120,
+                "tabWidth": 4,
+                "ignoreRegExpLiterals": true,
+                "ignorePattern": "^\\s*test\\(.+"
+            }
+        ],
+        "react/prop-types": 0,
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": 0,
+        "quotes": [
+            "error",
+            "single",
+            {
+                "avoidEscape": true,
+                "allowTemplateLiterals": true
+            }
+        ],
+        "@typescript-eslint/no-explicit-any": 0,
+        "unused-imports/no-unused-imports-ts": "error",
+        "no-unused-vars": 0,
+        "@typescript-eslint/no-unused-vars": "warn",
+//        "simple-import-sort/imports": [
+//            "error",
+//            {
+//                "groups": [["^react.*"], ["^"], ["^@\\w"], ["^\\.\\."], ["^\\."]]
+//            }
+//        ],
+//        "simple-import-sort/exports": "error",
+        "import/first": "error",
+        "import/newline-after-import": "error",
+        "import/no-duplicates": [
+            "error",
+            {
+                "considerQueryString": true
+            }
+        ],
+        "@typescript-eslint/explicit-module-boundary-types": [
+            "warn",
+            {
+                "allowArgumentsExplicitlyTypedAsAny": true
+            }
+        ]
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    }
+}
