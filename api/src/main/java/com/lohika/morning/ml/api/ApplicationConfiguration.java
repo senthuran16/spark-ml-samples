@@ -10,10 +10,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.event.EventListener;
 
-import java.awt.*;
+import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @Configuration
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
@@ -28,7 +30,8 @@ public class ApplicationConfiguration {
     @EventListener({ApplicationReadyEvent.class})
     public void applicationReadyEvent() {
         System.out.println("Application started ... launching browser now");
-        browse("http://localhost:3000");
+        Path path = Paths.get("web", "index.html");
+        browse(path.toString());
     }
 
     public static void browse(String url) {
@@ -42,10 +45,10 @@ public class ApplicationConfiguration {
         } else {
             Runtime runtime = Runtime.getRuntime();
             try {
-//                System.out.println("Executing command for WINDOWS: " + "start " + url);
+//                System.out.println("Executing command for WINDOWS: start " + url); // TODO pack for windows
 //                runtime.exec("start " + url);
 
-                System.out.println("Executing command for MAC: " + "start " + url);
+                System.out.println("Executing command for MAC OS: open " + url);
                 runtime.exec("open " + url);
             } catch (IOException e) {
                 e.printStackTrace();

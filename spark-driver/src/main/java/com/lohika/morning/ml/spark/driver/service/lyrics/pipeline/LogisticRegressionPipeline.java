@@ -68,7 +68,6 @@ public class LogisticRegressionPipeline extends CommonLyricsPipeline {
                         logisticRegression});
 
         ParamMap[] paramGrid = new ParamGridBuilder()
-                .addGrid(verser.sentencesInVerse(), new int[]{4, 8, 16})
                 .addGrid(word2Vec.vectorSize(), new int[] {100, 200, 300})
                 .addGrid(logisticRegression.regParam(), new double[] {0.01D})
                 .addGrid(logisticRegression.maxIter(), new int[] {100, 200})
@@ -93,7 +92,6 @@ public class LogisticRegressionPipeline extends CommonLyricsPipeline {
         PipelineModel bestModel = (PipelineModel) model.bestModel();
         Transformer[] stages = bestModel.stages();
 
-        modelStatistics.put("Sentences in verse", ((Verser) stages[7]).getSentencesInVerse());
         modelStatistics.put("Word2Vec vocabulary", ((Word2VecModel) stages[8]).getVectors().count());
         modelStatistics.put("Vector size", ((Word2VecModel) stages[8]).getVectorSize());
         modelStatistics.put("Reg parameter", ((LogisticRegressionModel) stages[9]).getRegParam());

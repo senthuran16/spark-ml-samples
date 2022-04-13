@@ -3,7 +3,7 @@ package com.lohika.morning.ml.spark.driver.service.lyrics;
 public class GenrePrediction {
 
     private String genre;
-    private Double metalProbability; // TODO Senthuran This is the custom genre
+    private Double soulProbability;
     private Double popProbability;
     private Double countryProbability;
     private Double bluesProbability;
@@ -13,7 +13,7 @@ public class GenrePrediction {
     private Double hiphopProbability;
 
     public GenrePrediction(String genre, 
-                            Double metalProbability,
+                            Double soulProbability,
                             Double popProbability,
                             Double countryProbability,
                             Double bluesProbability,
@@ -22,7 +22,7 @@ public class GenrePrediction {
                             Double rockProbability,
                             Double hiphopProbability) {
         this.genre = genre;
-        this.metalProbability = metalProbability; // TODO Senthuran This is the custom genre
+        this.soulProbability = soulProbability;
         this.popProbability = popProbability;
         this.countryProbability = countryProbability;
         this.bluesProbability = bluesProbability;
@@ -40,8 +40,8 @@ public class GenrePrediction {
         return genre;
     }
 
-    public Double getMetalProbability() { // TODO Senthuran This is the custom genre
-        return metalProbability;
+    public Double getSoulProbability() {
+        return soulProbability;
     }
 
     public Double getPopProbability() {
